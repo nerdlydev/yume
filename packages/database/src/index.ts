@@ -1,1 +1,2 @@
-export const helloDatabase = () => 'Hello from Database!';
+export * from './client';
+export * from './schema';

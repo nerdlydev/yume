@@ -6,6 +6,11 @@
     "packages/*"
   ],
   "scripts": {
+    "db:generate": "bun run --filter @yume/database generate",
+    "db:migrate": "bun run --filter @yume/database migrate",
+    "db:push": "bun run --filter @yume/database push",
+    "db:studio": "bun run --filter @yume/database studio",
+    "db:seed": "bun run --filter @yume/database seed",
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
