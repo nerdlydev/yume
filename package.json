@@ -1,0 +1,25 @@
+{
+  "name": "yume",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "check-types": "turbo check-types",
+    "test": "turbo test",
+    "format": "biome format --write .",
+    "lint:fix": "biome check --write .",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.2",
+    "husky": "^9.1.7",
+    "turbo": "^2.10.4",
+    "typescript": "^6.0.3"
+  },
+  "packageManager": "bun@1.1.20"
+}
