@@ -5,6 +5,6 @@ Each domain owns its own tables.
 - Companion
 - Communities
 - Experiences
-- Atlas
+- Journey
 - Aura
 - Notifications

@@ -1,4 +1,4 @@
-# Atlas
+# Journey
 
 ## Purpose
 ## Problem

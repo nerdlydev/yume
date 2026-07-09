@@ -66,8 +66,8 @@ erDiagram
         uuid user_id FK
     }
 
-    %% Atlas Domain
-    ATLAS_MEMORIES {
+    %% Journey Domain
+    JOURNEY_MEMORIES {
         uuid id PK
         uuid user_id FK
         uuid experience_id FK
@@ -87,6 +87,6 @@ erDiagram
     EXPERIENCES ||--o{ EXPERIENCE_PARTICIPANTS : "has"
     USERS ||--o{ EXPERIENCE_PARTICIPANTS : "joins"
     
-    USERS ||--o{ ATLAS_MEMORIES : "records"
-    EXPERIENCES ||--o{ ATLAS_MEMORIES : "generates"
+    USERS ||--o{ JOURNEY_MEMORIES : "records"
+    EXPERIENCES ||--o{ JOURNEY_MEMORIES : "generates"
 ```

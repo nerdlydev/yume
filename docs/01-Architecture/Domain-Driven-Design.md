@@ -12,7 +12,7 @@ Each domain **owns its data**. There is absolutely no cross-domain coupling at t
 - **Communities**: Hubs for users with shared interests or locations to interact.
 - **Experiences**: Tracks activities and events that users participate in together.
 - **Places**: Manages geospatial location data, venues, and points of interest.
-- **Atlas**: The memory, journaling, and mapping engine where completed experiences are recorded for the user to look back on.
+- **Journey**: The memory, journaling, and mapping engine where completed experiences are recorded for the user to look back on.
 - **Aura**: The reputation and feedback system. After an experience, feedback updates a user's Aura.
 - **Discover**: The recommendation engine to help users find new experiences, places, and companions.
 - **Notifications**: Manages delivery of real-time alerts and emails.
@@ -33,7 +33,7 @@ block-beta
 
   block:Group2
     Places
-    Atlas
+    Journey
     Aura
     Discover
   end
@@ -45,7 +45,7 @@ block-beta
 
   %% Styling
   classDef domain fill:#2D3748,stroke:#4A5568,stroke-width:2px,color:#fff,rx:5px
-  class Identity,Companion,Communities,Experiences,Places,Atlas,Aura,Discover,Notifications,Chat domain
+  class Identity,Companion,Communities,Experiences,Places,Journey,Aura,Discover,Notifications,Chat domain
 ```
 
 ## Internal Communication (Example)

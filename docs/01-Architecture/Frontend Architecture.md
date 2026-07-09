@@ -8,7 +8,7 @@ apps/web
       companion/
       communities/
       discover/
-      atlas/
+      journey/
     shared/
     design-system/
     hooks/

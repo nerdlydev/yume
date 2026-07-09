@@ -4,7 +4,7 @@ This document explains the high-level architectural decisions and the underlying
 
 ## The Modular Monolith
 
-Yume is designed as a **Modular Monolith**. Every core business area (Identity, Companion, Communities, Experiences, Places, Atlas, Aura, Discover) is isolated behind clear module boundaries. 
+Yume is designed as a **Modular Monolith**. Every core business area (Identity, Companion, Communities, Experiences, Places, Journey, Aura, Discover) is isolated behind clear module boundaries. 
 
 ### Why a Modular Monolith?
 - **Single Deployment:** Eliminates the complexity of orchestrating multiple microservices during the MVP and early growth stages.

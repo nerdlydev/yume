@@ -1,6 +1,6 @@
 # Experience Flow
 
-This document outlines the behavior and sequence of events when an Experience is completed. It demonstrates how multiple domains interact sequentially (Experience -> Feedback -> Aura -> Atlas -> Discover).
+This document outlines the behavior and sequence of events when an Experience is completed. It demonstrates how multiple domains interact sequentially (Experience -> Feedback -> Aura -> Journey -> Discover).
 
 ## Complete Experience Flow
 
@@ -12,7 +12,7 @@ sequenceDiagram
     participant FE as Frontend (React)
     participant Exp as Experience Module
     participant Aura as Aura Module
-    participant Atlas as Atlas Module
+    participant Journey as Journey Module
     participant Recs as Discover Module
 
     %% Experience Completion
@@ -29,14 +29,14 @@ sequenceDiagram
     Aura->>Aura: Calculate new Aura Score
     Aura->>Aura: Update User Reputation
 
-    %% Atlas Update (Memory)
-    Exp->>Atlas: Trigger Event: Experience Completed
-    Atlas->>Atlas: Create new Atlas Memory (Journal/Map entry)
+    %% Journey Update (Memory)
+    Exp->>Journey: Trigger Event: Experience Completed
+    Journey->>Journey: Create new Journey Memory (Journal/Map entry)
     
     %% Recommendations Update
-    Atlas->>Recs: Trigger Event: Atlas Updated
+    Journey->>Recs: Trigger Event: Journey Updated
     Recs->>Recs: Recalculate Recommendations for User
     
     %% Final State
-    FE->>FE: Update UI with new Aura score and Atlas entry
+    FE->>FE: Update UI with new Aura score and Journey entry
 ```
