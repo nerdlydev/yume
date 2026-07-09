@@ -94,10 +94,31 @@ Database
 * **No duplicated request types**: Types flow natively from the backend route definitions.
 * **Single source of truth**: End-to-end type safety out of the box with zero code generation steps compared to OpenAPI generation or tRPC.
 
-## Shared Packages
+## Monorepo & Shared Packages
 
-Only reusable, cross-feature code belongs in shared packages (`packages/ui`, `packages/database`, `packages/validation`).
-**Rule:** Never move code into packages because it "might" be shared. Extract only after genuine duplication exists.
+**A package exists to share a capability, not to organize code.**
+
+Ask one question before creating a package: **Will this package be used by at least two applications?** (e.g., `web` and `api` and `admin`). If only one application uses something, it should not be a package.
+
+### Approved Packages (Today)
+- `packages/ui`: Shared presentation components (Button, Card, Dialog).
+- `packages/database`: Owns the entire persistence layer (client, schema, relations, migrations).
+- `packages/validation`: The single source of truth for Zod schemas shared by both frontend and backend.
+
+### Forbidden Packages
+- ❌ `packages/types`: Do not create a generic types package. Types should live with the thing that owns them (e.g., Database types in `packages/database`, validation types in `packages/validation`, local UI types in `features/`).
+- ❌ `packages/utils`: Do not create a dumping ground for random helpers. Feature-specific utilities stay within their owning feature (`features/journey/utils/`).
+- ❌ `packages/constants`: Constants belong to their respective features.
+- ❌ `packages/auth`: Auth lives in the API. The frontend consumes it. No dedicated package needed today.
+- ❌ `packages/logger`: Keep logging utilities inside the application (e.g., API).
+
+### Public APIs
+Packages must expose clean public APIs.
+**Good**: `import { db } from "@yume/database"`
+**Bad**: `import "../../packages/database/src/client"`
+
+### Future Packages
+Only create new packages (like `packages/config`, `packages/sdk`, `packages/email`) when the cross-application capability genuinely emerges.
 
 ### Architecture Decisions (ADR)
 

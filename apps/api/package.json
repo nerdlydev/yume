@@ -12,8 +12,6 @@
   "dependencies": {
     "@better-auth/drizzle-adapter": "^1.6.23",
     "@yume/database": "workspace:*",
-    "@yume/types": "workspace:*",
-    "@yume/utils": "workspace:*",
     "@yume/validation": "workspace:*",
     "better-auth": "^1.6.23",
     "drizzle-orm": "^0.45.2",

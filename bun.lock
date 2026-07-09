@@ -17,8 +17,6 @@
       "dependencies": {
         "@better-auth/drizzle-adapter": "^1.6.23",
         "@yume/database": "workspace:*",
-        "@yume/types": "workspace:*",
-        "@yume/utils": "workspace:*",
         "@yume/validation": "workspace:*",
         "better-auth": "^1.6.23",
         "drizzle-orm": "^0.45.2",
@@ -41,9 +39,7 @@
         "@tanstack/react-form": "^1.33.0",
         "@tanstack/react-query": "^5.101.2",
         "@tanstack/react-router": "^1.170.17",
-        "@yume/types": "workspace:*",
         "@yume/ui": "workspace:*",
-        "@yume/utils": "workspace:*",
         "@yume/validation": "workspace:*",
         "daisyui": "^5.6.14",
         "motion": "^12.42.2",
@@ -74,13 +70,6 @@
         "typescript": "^6.0.3",
       },
     },
-    "packages/types": {
-      "name": "@yume/types",
-      "version": "0.0.0",
-      "devDependencies": {
-        "typescript": "^6.0.3",
-      },
-    },
     "packages/ui": {
       "name": "@yume/ui",
       "version": "0.0.0",
@@ -95,13 +84,6 @@
       "devDependencies": {
         "@types/react": "^19.2.17",
         "@types/react-dom": "^19.2.3",
-        "typescript": "^6.0.3",
-      },
-    },
-    "packages/utils": {
-      "name": "@yume/utils",
-      "version": "0.0.0",
-      "devDependencies": {
         "typescript": "^6.0.3",
       },
     },
@@ -375,11 +357,7 @@
 
     "@yume/database": ["@yume/database@workspace:packages/database"],
 
-    "@yume/types": ["@yume/types@workspace:packages/types"],
-
     "@yume/ui": ["@yume/ui@workspace:packages/ui"],
-
-    "@yume/utils": ["@yume/utils@workspace:packages/utils"],
 
     "@yume/validation": ["@yume/validation@workspace:packages/validation"],
 
