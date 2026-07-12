@@ -71,28 +71,45 @@ Request → Route → Controller → Service → Repository → Database
 
 ## Type-Safe Communication Strategy
 
-Yume utilizes **Hono RPC** for end-to-end type safety instead of manual types or shared type packages.
+Yume utilizes **Hono RPC** for end-to-end type safety instead of manual types, Swagger generation, or shared type packages. We treat Hono RPC as an **application communication strategy**, not just a library.
 
 ```text
-Frontend
-↓
-Hono RPC Client
-↓
+Component
+    ↓
+React Query Hook
+    ↓
+Feature API Layer (index.ts)
+    ↓
+Shared Hono RPC Client (app/api/client.ts)
+    ↓
 Hono Server
-↓
-Zod
-↓
+    ↓
+Zod Validation
+    ↓
 Service
-↓
+    ↓
 Repository
-↓
+    ↓
 Database
 ```
 
-**Why Hono RPC?**
-* **No handwritten API clients**: Eliminates drift between the server implementation and the client wrapper.
+### Strict API Boundaries
+- **Backend Export:** The backend (`@yume/api`) must cleanly separate the application definition from server execution. It exports `export type AppType = typeof app` from a dedicated `types.ts` file.
+- **Frontend Import:** The frontend **never** imports `server.ts`, `app.ts`, Controllers, Services, Repositories, Database context, or Schemas directly from the API. The frontend **only** imports `AppType` from `@yume/api`.
+- **Validation Package:** Shared Zod schemas live in `packages/validation/`, organized by feature domain (e.g. `packages/validation/communities/create.ts`). Both the frontend (for forms) and backend (for `zValidator`) consume this package.
+
+### Why Hono RPC?
+* **No OpenAPI generation step**: Removes the overhead of running codegen scripts on every change.
+* **No manual DTOs**: Zod schemas act as the single source of truth.
 * **No duplicated request types**: Types flow natively from the backend route definitions.
-* **Single source of truth**: End-to-end type safety out of the box with zero code generation steps compared to OpenAPI generation or tRPC.
+* **No generated clients**: The client is a thin generic wrapper inferred via TypeScript.
+* **Native TypeScript inference**: Zero runtime cost and instant compiler feedback.
+
+### Hono RPC Limitations & The Future
+Hono RPC only works **inside the monorepo** because both applications share TypeScript types. External clients (mobile apps, third-party integrations) cannot consume TypeScript types directly.
+
+**Future Strategy:**
+Today, we rely exclusively on Hono RPC for internal monorepo communication. Tomorrow, when we need to expose endpoints publicly, we will generate the OpenAPI spec from our Zod schemas -> Serve Swagger UI -> Generate a Public Mobile/Third-Party SDK. Hono RPC will remain the internal contract for Yume Web and Admin applications.
 
 ## Monorepo & Shared Packages
 

@@ -24,6 +24,7 @@ Every technology used in Yume must satisfy these principles:
 - **Vite:** Lightning-fast dev server and builds.
 - **TanStack Router:** Type-safe routing.
 - **TanStack Query:** Server state management.
+- **Hono RPC Client:** Type-safe API fetching without code generation.
 - **TanStack Form:** Type-safe forms.
 - **TanStack Table:** Powerful data tables.
 - **Tailwind CSS & shadcn/ui:** Rapid, accessible UI development.
@@ -33,6 +34,7 @@ Every technology used in Yume must satisfy these principles:
 ### Backend
 - **Bun:** Extremely fast JavaScript runtime.
 - **Hono:** Minimal, composable API framework.
+- **Hono RPC:** End-to-end type safety natively inferred from routes.
 - **Drizzle ORM:** SQL-first ORM.
 - **PostgreSQL & PostGIS:** Reliable relational DB + geospatial queries.
 - **Redis (Upstash):** Caching, rate limiting, real-time sync.

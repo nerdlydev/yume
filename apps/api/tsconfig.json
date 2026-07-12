@@ -3,7 +3,9 @@
   "compilerOptions": {
     "paths": {
       "~/*": ["./src/*"]
-    }
+    },
+    "types": ["bun"],
+    "noEmit": true
   },
   "include": ["src/**/*"]
 }
