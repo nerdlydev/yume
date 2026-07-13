@@ -146,3 +146,8 @@ Only create new packages (like `packages/config`, `packages/sdk`, `packages/emai
 * **ADR-005**: Hono RPC
 * **ADR-006**: Shared Validation
 * **ADR-007**: No Shared Types Package
+* **ADR-008**: External Integration via Adapter Pattern
+
+## External Integration (Adapter Pattern)
+Whenever Yume integrates an external platform service (e.g. Better Auth, Resend, Stripe), that service must be treated as an **adapter**, completely hidden behind a domain module's service layer.
+For example, Better Auth is encapsulated within the Identity module. Other modules do not call Better Auth directly; they call `AuthenticationService` or `UserService`. If Better Auth is ever replaced, only the Identity module's internal configuration changes.
