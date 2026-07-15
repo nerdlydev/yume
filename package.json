@@ -12,6 +12,8 @@
     "db:studio": "bun run --filter @yume/database studio",
     "db:seed": "bun run --filter @yume/database seed",
     "dev": "turbo dev",
+    "dev:web": "turbo dev --filter=web",
+    "dev:api": "turbo dev --filter=@yume/api",
     "build": "turbo build",
     "lint": "turbo lint",
     "check-types": "turbo check-types",
