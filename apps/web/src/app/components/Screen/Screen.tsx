@@ -11,7 +11,9 @@ interface ScreenProps {
  */
 export function Screen({ children, className = '' }: ScreenProps) {
   return (
-    <div className={`flex flex-col flex-1 w-full max-w-screen-xl mx-auto h-full min-h-[100dvh] relative ${className}`}>
+    <div
+      className={`flex flex-col flex-1 w-full max-w-screen-xl mx-auto h-full min-h-[100dvh] relative ${className}`}
+    >
       {children}
     </div>
   );

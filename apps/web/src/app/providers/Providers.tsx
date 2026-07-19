@@ -1,11 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
-import { AuthProvider } from './AuthProvider';
-import { PWAProvider } from '../pwa';
+import { BottomSheetProvider } from '../overlays/BottomSheetProvider';
+import { DialogProvider } from '../overlays/DialogProvider';
 
 import { ToastProvider } from '../overlays/ToastProvider';
-import { DialogProvider } from '../overlays/DialogProvider';
-import { BottomSheetProvider } from '../overlays/BottomSheetProvider';
+import { PWAProvider } from '../pwa';
+import { AuthProvider } from './AuthProvider';
 
 // We can extract this if we want to share the client
 const queryClient = new QueryClient();
@@ -25,9 +25,7 @@ export function Providers({ children }: ProvidersProps) {
         <PWAProvider>
           <ToastProvider>
             <DialogProvider>
-              <BottomSheetProvider>
-                {children}
-              </BottomSheetProvider>
+              <BottomSheetProvider>{children}</BottomSheetProvider>
             </DialogProvider>
           </ToastProvider>
         </PWAProvider>

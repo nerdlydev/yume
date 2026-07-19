@@ -1,6 +1,6 @@
-import { House, MagnifyingGlass, Heart, MapTrifold, ChatCircle, User } from '@phosphor-icons/react';
-import { DockItem } from './DockItem';
+import { ChatCircle, Heart, House, MagnifyingGlass, MapTrifold, User } from '@phosphor-icons/react';
 import { zIndex } from '../../design/tokens';
+import { DockItem } from './DockItem';
 
 const DESTINATIONS = [
   { id: 'home', label: 'Home', path: '/', icon: House },
@@ -24,12 +24,7 @@ export function Dock() {
     >
       <div className="pointer-events-auto glass-panel bg-base-100/60 backdrop-blur-2xl rounded-full p-2 flex items-center gap-2 lg:gap-4 shadow-2xl border border-base-content/10">
         {DESTINATIONS.map((dest) => (
-          <DockItem
-            key={dest.id}
-            path={dest.path}
-            icon={dest.icon}
-            label={dest.label}
-          />
+          <DockItem key={dest.id} path={dest.path} icon={dest.icon} label={dest.label} />
         ))}
       </div>
     </div>

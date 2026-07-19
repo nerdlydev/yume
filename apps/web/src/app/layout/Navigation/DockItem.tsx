@@ -35,15 +35,9 @@ export function DockItem({ path, label, icon: Icon }: DockItemProps) {
               transition={springSnappy}
             />
           )}
-          <Icon 
-            size={24} 
-            weight={isActive ? "fill" : "regular"} 
-            className="relative z-10" 
-          />
+          <Icon size={24} weight={isActive ? 'fill' : 'regular'} className="relative z-10" />
           {/* Label visible only on tablet+ */}
-          <span className="hidden sm:block text-sm font-medium relative z-10">
-            {label}
-          </span>
+          <span className="hidden sm:block text-sm font-medium relative z-10">{label}</span>
         </motion.div>
       )}
     </Link>
